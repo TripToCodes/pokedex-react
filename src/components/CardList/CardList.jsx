@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../Card/Card";
 
 export default function CardList({ pokemons }) {
-  console.log("pokemons at CardList: ", pokemons);
+  // console.log("pokemons at CardList: ", pokemons);
   return (
     <>
       <ul>
