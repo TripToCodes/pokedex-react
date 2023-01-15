@@ -34,7 +34,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Navbar handleSearch={handleSearch} />
+      <Navbar pokemons={pokemons} handleSearch={handleSearch} />
       <Outlet context={[pokemons, setPokemons]} />
       <Footer />
     </QueryClientProvider>
