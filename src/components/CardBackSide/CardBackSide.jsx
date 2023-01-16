@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
+import Stats from "../Stats/Stats";
 import styles from "./CardBackSide.module.css";
 
 export default function CardBackSide({ pokemon, cardStatus, onFlipChange, onCollect }) {
@@ -49,7 +50,8 @@ export default function CardBackSide({ pokemon, cardStatus, onFlipChange, onColl
           onClick={handleClick}
         />
         <div className={styles.pokemon__abilities}>{`Abilities: ${pokemonAbilities}`}</div>
-        <div className={styles.pokemon__stats}>{`Stats: ${pokemonStats}`}</div>
+        <div className={styles.pokemon__stats}>{`Stats: ${JSON.stringify(pokemonStats)}`}</div>
+        {/* <Stats statName={pokemonStats[0]} statNumber={pokemonStats[1]} /> */}
       </div>
     </div>
   );
