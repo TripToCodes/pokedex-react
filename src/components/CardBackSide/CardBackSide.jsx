@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 
-export default function CardBackSide({ pokemon }) {
+export default function CardBackSide({ pokemon, cardStatus }) {
   const [pokemonStats, setPokemonStats] = useState([]);
   const [pokemonAbilities, setPokemonAbilities] = useState([]);
 

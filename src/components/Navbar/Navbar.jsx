@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import { FiArchive } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 
-export default function Navbar({ pokemons, handleSearch }) {
+export default function Navbar({ pokemons, handleSearch, filters, filter, onFilterChange }) {
   const [text, setText] = useState("");
   const [display, setDisplay] = useState(false);
   const wrapperRef = useRef(null);
@@ -32,7 +31,7 @@ export default function Navbar({ pokemons, handleSearch }) {
     handleSearch(text);
   };
   return (
-    <nav>
+    <header>
       <Link to="/">
         <div>Logo</div>
       </Link>
@@ -68,11 +67,13 @@ export default function Navbar({ pokemons, handleSearch }) {
           </button>
         </form>
       </div>
-      <Link to="/mycards">
-        <div>
-          <FiArchive />
-        </div>
-      </Link>
-    </nav>
+      <ul>
+        {filters.map((value, index) => (
+          <li key={index}>
+            <button onClick={() => onFilterChange(value)}>{value}</button>
+          </li>
+        ))}
+      </ul>
+    </header>
   );
 }
