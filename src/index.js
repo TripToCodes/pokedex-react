@@ -4,19 +4,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home/Home";
-import MyCards from "./pages/MyCards/MyCards";
-import NotFound from "./pages/NotFound";
+import CardList from "./components/CardList/CardList";
+import NotFound from "./components/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <NotFound />,
-    children: [
-      { index: true, element: <Home /> },
-      { path: "/mycards", element: <MyCards /> },
-    ],
+    children: [{ index: true, element: <CardList /> }],
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
