@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
 import { useOutletContext } from "react-router-dom";
+import styles from "./CardList.module.css";
 
 export default function CardList() {
   // console.log("pokemons at CardList: ", pokemons);
@@ -13,8 +14,8 @@ export default function CardList() {
   const filtered = getFilteredCards(pokemons, filter);
 
   return (
-    <section>
-      <ul>
+    <section className={styles.container}>
+      <ul className={styles.list}>
         {filtered.map((pokemon) => (
           <Card key={pokemon.id} pokemon={pokemon} onCollect={handleCollect} />
         ))}
