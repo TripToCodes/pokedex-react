@@ -13,6 +13,7 @@ const filters = ["all", "collected"];
 function App() {
   const [pokemons, setPokemons] = useState([]);
   const [filter, setFilter] = useState([filters[0]]);
+  const [searched, setSearched] = useState(null);
 
   useEffect(() => {
     getPokemonsApi()
@@ -37,8 +38,7 @@ function App() {
   }, []);
 
   const handleSearch = (text) => {
-    const searchedPokemon = pokemons.filter((pokemon) => pokemon.name === text);
-    setPokemons(searchedPokemon);
+    setSearched(text);
   };
 
   return (
@@ -50,7 +50,7 @@ function App() {
         filter={filter}
         onFilterChange={setFilter}
       />
-      <Outlet context={[pokemons, setPokemons, filter]} />
+      <Outlet context={[pokemons, setPokemons, filter, searched]} />
       <Footer />
     </QueryClientProvider>
   );

@@ -1,0 +1,5 @@
+.footer__container {
+  color: var(--color-text);
+  font-size: x-large;
+  margin: 10px;
+}
