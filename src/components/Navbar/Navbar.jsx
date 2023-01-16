@@ -46,19 +46,22 @@ export default function Navbar({ pokemons, handleSearch, filters, filter, onFilt
                 className={styles.input}
                 type="text"
                 onClick={() => setDisplay(!display)}
-                placeholder="Search..."
+                placeholder="  Search..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
               ></input>
+              <button className={styles.search__button}>
+                <FiSearch />
+              </button>
               {display && (
-                <div className="autoContainer">
+                <div className={styles.autocontainer}>
                   {pokemons
                     .filter(({ name }) => name.indexOf(text.toLowerCase()) > -1)
                     .map((value, i) => {
                       return (
                         <div
+                          className={styles.option__span}
                           onClick={() => updateSearch(value.name)}
-                          className="option"
                           key={i}
                           tabIndex="0"
                         >
@@ -68,9 +71,6 @@ export default function Navbar({ pokemons, handleSearch, filters, filter, onFilt
                     })}
                 </div>
               )}
-              <button>
-                <FiSearch />
-              </button>
             </form>
           </div>
         </div>

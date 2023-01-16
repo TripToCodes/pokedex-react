@@ -1,0 +1,19 @@
+.card {
+  width: 400px;
+  height: max-content;
+  display: inline-block;
+  justify-content: space-between;
+  margin: 0 3rem;
+}
+
+.card__content {
+  text-align: center;
+  position: relative;
+  padding: 10em 5em;
+  transition: transform 3s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card__content {
+  transform: rotateY(0.5turn);
+}

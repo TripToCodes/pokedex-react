@@ -6,6 +6,13 @@
   --color-accent: #f52cb0;
   --color-white: rgb(242, 234, 234);
   --color-scrollbar: #f52cb0;
+
+  --level-one: translateZ(2rem);
+  --level-two: translateZ(4rem);
+  --level-three: translateZ(6rem);
+
+  --fw-normal: 400;
+  --fw-bold: 700;
 }
 
 body {
@@ -18,8 +25,9 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
+  align-items: flex-start;
+  margin-top: 4rem;
+  font-size: 1.8rem;
   accent-color: var(--color-accent);
   background: rgb(239, 239, 247);
   background: linear-gradient(
@@ -32,14 +40,12 @@ body {
 
 #root {
   width: 100%;
-  height: 60%;
-  max-width: 800px;
+  height: 80%;
+  max-width: 1000px;
   overflow: hidden;
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* -webkit-box-shadow: 5px 5px 21px 4px rgba(0, 0, 0, 0.45);
-  box-shadow: 5px 5px 21px 4px rgba(0, 0, 0, 0.1); */
 }
 
 code {
