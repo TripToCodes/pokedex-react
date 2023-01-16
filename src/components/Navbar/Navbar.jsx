@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FiSearch } from "react-icons/fi";
+import { BiSearch } from "react-icons/bi";
 import styles from "./Navbar.module.css";
 import pokeball from "../../assets/pokeball.png";
 
@@ -51,12 +51,12 @@ export default function Navbar({ pokemons, handleSearch, filters, filter, onFilt
                 onChange={(e) => setText(e.target.value)}
               ></input>
               <button className={styles.search__button}>
-                <FiSearch />
+                <BiSearch />
               </button>
               {display && (
                 <div className={styles.autocontainer}>
                   {pokemons
-                    .filter(({ name }) => name.indexOf(text.toLowerCase()) > -1)
+                    .filter(({ name }) => name.indexOf(text.toLowerCase()) >= 0)
                     .map((value, i) => {
                       return (
                         <div
