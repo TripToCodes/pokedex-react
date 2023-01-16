@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
+import styles from "./CardFrontSide.module.css";
 
-export default function CardFrontSide({ pokemon, cardStatus, onCollect }) {
+export default function CardFrontSide({ pokemon, onFlipChange, cardStatus }) {
   const [pokemonTypes, setPokemonTypes] = useState("");
-  const { id, name, status } = pokemon;
+  const { name, weight, height } = pokemon;
 
   useEffect(() => {
     let types = "";
@@ -13,17 +14,21 @@ export default function CardFrontSide({ pokemon, cardStatus, onCollect }) {
     setPokemonTypes(types);
   }, []);
 
-  const handleChange = (e) => {
-    const status = e.target.checked ? "collected" : "all";
-    onCollect({ ...pokemon, status });
+  const handleClick = () => {
+    onFlipChange(!cardStatus);
   };
 
   return (
-    <div>
-      <input type="checkbox" id={id} checked={status === "collected"} onChange={handleChange} />
-      <div>{name}</div>
-      <img src={pokemon.sprites.back_default} />
-      <div>{pokemonTypes}</div>
+    <div className={styles.card__front}>
+      <h3 className={styles.pokemon__name}>{name}</h3>
+      <div className={styles.pokemon__types}>{pokemonTypes}</div>
+      <img
+        className={styles.pokemon__image}
+        src={pokemon.sprites.back_default}
+        onClick={handleClick}
+      />
+      <div className={styles.pokemon__weight}>{`weight: ${weight}`}</div>
+      <div className={styles.pokemon__height}>{`height: ${height}`}</div>
     </div>
   );
 }

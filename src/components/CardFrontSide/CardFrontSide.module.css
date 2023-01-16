@@ -1,0 +1,62 @@
+.card__front {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5em 3em;
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+  background-image: url(../../assets/card-background.jpg);
+  background-size: cover;
+  background-blend-mode: overlay;
+  color: #333;
+  border-radius: 12px;
+}
+
+.card__front::before {
+  content: "";
+  position: absolute;
+  --spacer: 1em;
+  top: var(--spacer);
+  bottom: var(--spacer);
+  left: var(--spacer);
+  right: var(--spacer);
+  border: 2px solid var(--color-text);
+  border-radius: 12px;
+  transform: var(--level-one);
+}
+
+.pokemon__name {
+  font-size: 2rem;
+  order: 2;
+  text-transform: capitalize;
+  transform: var(--level-two);
+}
+.pokemon__image {
+  transform: var(--level-three);
+}
+.pokemon__types {
+  transform: var(--level-two);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  font-weight: var(--fw-bold);
+  opacity: 0.7;
+}
+.pokemon__weight {
+  transform: var(--level-two);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  font-weight: var(--fw-bold);
+  opacity: 0.7;
+}
+.pokemon__height {
+  transform: var(--level-two);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  font-weight: var(--fw-bold);
+  opacity: 0.7;
+}
