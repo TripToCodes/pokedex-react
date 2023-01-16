@@ -30,6 +30,9 @@
 
 .autocontainer {
   position: absolute;
+  z-index: 9999;
+  height: 20rem;
+  overflow: auto;
 }
 
 .option__span {
