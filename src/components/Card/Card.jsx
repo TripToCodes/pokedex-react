@@ -11,14 +11,14 @@ export default function Card({ pokemon, onCollect }) {
         <CardBackSide
           pokemon={pokemon}
           cardStatus={flipped}
-          onFlipChange={setFlipped}
+          onFlipChange={(cardStatus) => setFlipped(cardStatus)}
           onCollect={onCollect}
         />
       ) : (
         <CardFrontSide
           pokemon={pokemon}
           cardStatus={flipped}
-          onFlipChange={setFlipped}
+          onFlipChange={(cardStatus) => setFlipped(cardStatus)}
           onCollect={onCollect}
         />
       )}

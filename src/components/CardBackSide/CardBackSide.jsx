@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 
-export default function CardBackSide({ pokemon, cardStatus }) {
+export default function CardBackSide({ pokemon, cardStatus, onFlipChange }) {
   const [pokemonStats, setPokemonStats] = useState([]);
   const [pokemonAbilities, setPokemonAbilities] = useState([]);
 
@@ -21,14 +21,18 @@ export default function CardBackSide({ pokemon, cardStatus }) {
     setPokemonAbilities(abilities);
   }, []);
 
+  const handleClick = () => {
+    onFlipChange(!cardStatus);
+  };
+
   return (
-    <>
+    <div>
       <div>{pokemon.name}</div>
-      <img src={pokemon.sprites.front_default} />
+      <img src={pokemon.sprites.front_default} onClick={handleClick} />
       <div>{`weight: ${pokemon.weight}`}</div>
       <div>{`height: ${pokemon.height}`}</div>
       <div>{`Abilities: ${pokemonAbilities}`}</div>
       <div>{`Stats: ${pokemonStats}`}</div>
-    </>
+    </div>
   );
 }
