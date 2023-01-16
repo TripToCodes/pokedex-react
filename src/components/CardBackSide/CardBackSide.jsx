@@ -11,7 +11,10 @@ export default function CardBackSide({ pokemon, cardStatus, onFlipChange, onColl
   useEffect(() => {
     let stats = [];
     pokemon.stats.map((stat) => {
-      stats.push([stat.stat.name, stat.base_stat]);
+      stats.push({
+        name: stat.stat.name,
+        base_stat: stat.base_stat,
+      });
     });
     setPokemonStats(stats);
   }, []);
@@ -50,8 +53,10 @@ export default function CardBackSide({ pokemon, cardStatus, onFlipChange, onColl
           onClick={handleClick}
         />
         <div className={styles.pokemon__abilities}>{`Abilities: ${pokemonAbilities}`}</div>
-        <div className={styles.pokemon__stats}>{`Stats: ${JSON.stringify(pokemonStats)}`}</div>
-        {/* <Stats statName={pokemonStats[0]} statNumber={pokemonStats[1]} /> */}
+
+        <div className={styles.pokemon__stats}>
+          <Stats pokemonStats={pokemonStats} />
+        </div>
       </div>
     </div>
   );

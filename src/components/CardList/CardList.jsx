@@ -25,7 +25,7 @@ export default function CardList() {
 }
 
 function getFilteredCards(pokemons, filter, searched) {
-  if (searched !== null) {
+  if (searched !== null && searched.length !== 0) {
     return pokemons.filter((pokemon) => pokemon.name === searched);
   }
   if (filter === "all") {
